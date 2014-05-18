@@ -8,9 +8,9 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 16.0, 44.0, 433.0, 674.0 ],
+		"rect" : [ 16.0, 44.0, 377.0, 311.0 ],
 		"bglocked" : 0,
-		"openinpresentation" : 0,
+		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Andale Mono",
@@ -93,13 +93,14 @@
 					"fontsize" : 12.0,
 					"frgb" : 0.0,
 					"id" : "obj-15",
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 233.5, 232.5, 83.0, 20.0 ],
+					"patching_rect" : [ 233.5, 232.5, 83.0, 60.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 22.0, 31.0, 83.0, 20.0 ],
-					"text" : "monome.org"
+					"presentation_rect" : [ 24.5, 273.0, 248.0, 20.0 ],
+					"text" : "monome.org/docs/app:meadowphysics"
 				}
 
 			}
@@ -517,15 +518,15 @@
 , 			{
 				"box" : 				{
 					"fontname" : "Andale Mono",
-					"fontsize" : 36.0,
+					"fontsize" : 18.0,
 					"id" : "obj-16",
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 22.0, 571.5, 97.0, 45.0 ],
+					"patching_rect" : [ 22.0, 571.5, 54.0, 25.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 24.5, 217.5, 97.0, 45.0 ],
+					"presentation_rect" : [ 24.5, 215.5, 54.0, 25.0 ],
 					"text" : "next"
 				}
 
@@ -920,7 +921,7 @@
 			}
 , 			{
 				"name" : "mp.js",
-				"bootpath" : "/Users/tehn/Work/max/mp",
+				"bootpath" : "/Users/tehn/Work/max/meadowphysics",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
