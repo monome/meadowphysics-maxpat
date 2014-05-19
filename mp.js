@@ -7,6 +7,7 @@ var L0 = 5;
 
 var XSIZE = 16;
 var YSIZE = 8;
+var varBright = 0;
 
 var key_count = 0;
 var mode = 0;		// 0 = normal, 1 = route, 2 = rules
@@ -91,16 +92,33 @@ function redraw() {
 			leds[rules[edit_row] * 16 + 7] = L2;
 		}
 
-		// break apart into maps regions
-		for(i1=0;i1<8;i1++)
-			for(i2=0;i2<8;i2++)
-				buffer[i1*8+i2] = leds[i1*16+i2];
-		outlet(0,"map0",buffer);
+		if(varBright==1) { // break apart into maps regions
+			for(i1=0;i1<8;i1++)
+				for(i2=0;i2<8;i2++)
+					buffer[i1*8+i2] = leds[i1*16+i2];
+			outlet(0,"map0",buffer);
 
-		for(i1=0;i1<8;i1++)
-			for(i2=0;i2<8;i2++)
-				buffer[i1*8+i2] = leds[i1*16+i2+8];
-		outlet(0,"map1",buffer);
+			for(i1=0;i1<8;i1++)
+				for(i2=0;i2<8;i2++)
+					buffer[i1*8+i2] = leds[i1*16+i2+8];
+			outlet(0,"map1",buffer);
+		}
+		else { // non-varbright leds
+			var mask0 = 0;
+			var mask1 = 0;
+			for(y=0;y<YSIZE;y++) {
+				for(x=0;x<8;x++) {
+					if(leds[x+y*16]>3) mask0 = mask0 | 1<<x; // if on at all, set to full bright
+					else mask0 = mask0 & ~(1<<x); // if off, leave cell off
+				}
+				for(x=0;x<8;x++) {
+					if(leds[x+y*16+8]>3) mask1 = mask1 | 1<<x; // if on at all, set to full bright
+					else mask1 = mask1 & ~(1<<x); // if off, leave cell off
+				}
+				outlet(0,"/mp/grid/led/row",0,y,mask0,mask1);
+			}
+
+		}
 
 		dirty_grid = 0;
 	}
@@ -110,6 +128,8 @@ function size(sx, sy) {
 	XSIZE = sx;
 	YSIZE = sy;
 }
+
+function variableB(x) { varBright = x; } // is device varibright compatible
 
 function key(kx, ky, state) {
 	prev_mode = mode;
