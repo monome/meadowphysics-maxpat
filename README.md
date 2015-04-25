@@ -5,6 +5,8 @@ meadowphysics
 
 april 2014 tehn@monome.org
 
+requires teletype: https://github.com/monome/teletype
+
 best experienced with a variable brightness 128.
 
 

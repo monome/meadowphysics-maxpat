@@ -37,6 +37,10 @@ var glyph = [[0,0,0,0,0,0,0,0],					// o
 var leds = new Array(128);
 var buffer = new Array(64);
 
+function e(s) {
+	eval(s);
+}
+
 function forceRedraw() {
 	dirty_grid = 1;
 	redraw();
