@@ -3,6 +3,8 @@ meadowphysics
 
 (max) complex cascading counter
 
+UPDATE: check out version 2: http://llllllll.co/t/new-meadowphysics-two
+
 april 2014 tehn@monome.org
 
 requires teletype: https://github.com/monome/teletype
